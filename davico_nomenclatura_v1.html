@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomenclatura degli Ossidi Basici e Acidi | Laboratorio Chimica</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+        .font-mono-chem {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Animazione incrocio indici */
+        @keyframes pulseCross {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+        }
+        .cross-animate {
+            animation: pulseCross 0.5s ease-in-out;
+        }
+        /* Transizioni tab */
+        .tab-btn.active {
+            background-color: #0f172a;
+            color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.15);
+        }
+        /* Nascondi scrollbar orizzontale dove non serve */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- HEADER ISTITUZIONALE / DIDATTICO -->
+    <header class="bg-slate-900 text-white border-b border-slate-800 shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-rose-500 flex items-center justify-center font-mono-chem font-bold text-lg shadow-inner shrink-0">
+                    E₂Oₙ
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-base sm:text-lg font-extrabold tracking-tight">Nomenclatura degli Ossidi</h1>
+                        <span class="hidden sm:inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-800 text-sky-300 border border-slate-700">
+                            Chimica • Istituto Tecnico
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-400">Ossidi Basici, Ossidi Acidi (Anidridi), Regola dell'Incrocio e Sistemi IUPAC / Tradizionale / Stock</p>
+                </div>
+            </div>
+
+            <!-- Navigazione a Schede (Tabs) -->
+            <nav aria-label="Sezioni principali" class="flex items-center gap-1.5 bg-slate-800/90 p-1 rounded-xl border border-slate-700 overflow-x-auto no-scrollbar">
+                <button data-tab="teoria" class="tab-btn active px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition whitespace-nowrap flex items-center gap-1.5">
+                    <span>📘</span> 1. Teoria & Regole
+                </button>
+                <button data-tab="laboratorio" class="tab-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition whitespace-nowrap flex items-center gap-1.5">
+                    <span>⚗️</span> 2. Laboratorio Ossidi
+                </button>
+                <button data-tab="eccezioni" class="tab-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition whitespace-nowrap flex items-center gap-1.5">
+                    <span>⚠️</span> 3. Tavola & Eccezioni
+                </button>
+                <button data-tab="quiz" class="tab-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition whitespace-nowrap flex items-center gap-1.5">
+                    <span>🎯</span> 4. Esercitazione & Quiz
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-5 py-5">
+
+        <!-- ===================================================================== -->
+        <!-- SEZIONE 1: TEORIA VISIVA E INTERATTIVA                                -->
+        <!-- ===================================================================== -->
+        <section id="tab-teoria" class="tab-panel space-y-5">
+            <!-- Introduzione e Confronto Binario: Ossidi Basici vs Ossidi Acidi -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <!-- Card Ossidi Basici -->
+                <div class="bg-white rounded-2xl border-2 border-blue-200 shadow-sm p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wide bg-blue-100 text-blue-800 border border-blue-200">
+                                Ossidi Basici
+                            </span>
+                            <span class="font-mono-chem text-xs font-bold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg">
+                                Me + O (N.O. = -2)
+                            </span>
+                        </div>
+                        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Metallo + Ossigeno</h2>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                            Sono composti binari formati da un <strong>elemento metallico</strong> (a sinistra nella tavola periodica, basso valore di elettronegatività) combinato con l'<strong>ossigeno</strong> (numero di ossidazione <strong>-2</strong>).
+                        </p>
+                        <div class="bg-blue-50/80 border border-blue-200 rounded-xl p-3.5 space-y-2 text-xs">
+                            <div class="font-bold text-blue-900 flex items-center gap-1.5">
+                                <span>🧪</span> Perché si chiamano "basici"?
+                            </div>
+                            <p class="text-blue-800 leading-relaxed">
+                                Reagendo con l'acqua formano gli <strong>idrossidi</strong> (basi), che liberano ioni <code class="font-mono-chem font-bold">OH⁻</code>:<br>
+                                <span class="font-mono-chem font-bold inline-block mt-1 bg-white px-2 py-0.5 rounded border border-blue-200">CaO + H₂O → Ca(OH)₂</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap gap-2 text-xs">
+                        <span class="font-semibold text-slate-500">Esempi:</span>
+                        <span class="font-mono-chem bg-blue-50 text-blue-800 px-2 py-0.5 rounded border border-blue-200">Na₂O</span>
+                        <span class="font-mono-chem bg-blue-50 text-blue-800 px-2 py-0.5 rounded border border-blue-200">CaO</span>
+                        <span class="font-mono-chem bg-blue-50 text-blue-800 px-2 py-0.5 rounded border border-blue-200">FeO / Fe₂O₃</span>
+                    </div>
+                </div>
+
+                <!-- Card Ossidi Acidi (Anidridi) -->
+                <div class="bg-white rounded-2xl border-2 border-rose-200 shadow-sm p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wide bg-rose-100 text-rose-800 border border-rose-200">
+                                Ossidi Acidi (Anidridi)
+                            </span>
+                            <span class="font-mono-chem text-xs font-bold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg">
+                                NonMe + O (N.O. = -2)
+                            </span>
+                        </div>
+                        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Non Metallo + Ossigeno</h2>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                            Sono composti binari formati da un <strong>elemento non metallico</strong> (a destra nella tavola periodica, alta elettronegatività) combinato con l'<strong>ossigeno</strong> (numero di ossidazione <strong>-2</strong>). Nella nomenclatura tradizionale prendono il nome storico di <strong>anidridi</strong>.
+                        </p>
+                        <div class="bg-rose-50/80 border border-rose-200 rounded-xl p-3.5 space-y-2 text-xs">
+                            <div class="font-bold text-rose-900 flex items-center gap-1.5">
+                                <span>🧪</span> Perché si chiamano "acidi"?
+                            </div>
+                            <p class="text-rose-800 leading-relaxed">
+                                Reagendo con l'acqua formano gli <strong>ossiacidi</strong> (acidi ternari), che liberano ioni <code class="font-mono-chem font-bold">H⁺</code>:<br>
+                                <span class="font-mono-chem font-bold inline-block mt-1 bg-white px-2 py-0.5 rounded border border-rose-200">SO₃ + H₂O → H₂SO₄</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap gap-2 text-xs">
+                        <span class="font-semibold text-slate-500">Esempi:</span>
+                        <span class="font-mono-chem bg-rose-50 text-rose-800 px-2 py-0.5 rounded border border-rose-200">CO₂</span>
+                        <span class="font-mono-chem bg-rose-50 text-rose-800 px-2 py-0.5 rounded border border-rose-200">SO₂ / SO₃</span>
+                        <span class="font-mono-chem bg-rose-50 text-rose-800 px-2 py-0.5 rounded border border-rose-200">Cl₂O₇</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regola dell'Incrocio & Semplificazione -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-3 border-b border-slate-100">
+                    <div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <span>🔀</span> Come scrivere la formula: La Regola dell'Incrocio
+                        </h3>
+                        <p class="text-xs text-slate-500">Un composto chimico neutro deve avere la somma algebrica dei numeri di ossidazione uguale a zero.</p>
+                    </div>
+                    <span class="text-xs font-semibold bg-amber-100 text-amber-900 px-3 py-1 rounded-full border border-amber-200 self-start md:self-auto">
+                        Regola d'oro: Semplifica se entrambi gli indici sono pari!
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                    <!-- Step 1 -->
+                    <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                        <div class="text-xs font-extrabold text-slate-400 uppercase mb-1">Passo 1 • Simboli e N.O.</div>
+                        <p class="text-xs text-slate-600 mb-3">Scrivi prima l'elemento meno elettronegativo (E) con il suo N.O. positivo <code class="font-mono-chem font-bold">+n</code> e poi l'ossigeno con <code class="font-mono-chem font-bold">-2</code>.</p>
+                        <div class="bg-white rounded-lg p-3 border border-slate-200 text-center font-mono-chem text-lg font-bold">
+                            S<sup class="text-rose-600">+6</sup> &nbsp;&nbsp; O<sup class="text-sky-600">-2</sup>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                        <div class="text-xs font-extrabold text-slate-400 uppercase mb-1">Passo 2 • Incrocio in valore assoluto</div>
+                        <p class="text-xs text-slate-600 mb-3">Il valore assoluto del N.O. dell'ossigeno (2) diventa il pedice di E, e il N.O. di E (n) diventa il pedice di O.</p>
+                        <div class="bg-white rounded-lg p-3 border border-slate-200 text-center font-mono-chem text-lg font-bold">
+                            S<sub class="text-sky-600">2</sub>O<sub class="text-rose-600">6</sub>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                        <div class="text-xs font-extrabold text-slate-400 uppercase mb-1">Passo 3 • Semplificazione (MCD)</div>
+                        <p class="text-xs text-slate-600 mb-3">Se entrambi i pedici sono divisibili per 2, dividi per 2 (l'indice 1 non si scrive mai!).</p>
+                        <div class="bg-white rounded-lg p-3 border border-slate-200 text-center font-mono-chem text-lg font-bold text-emerald-700">
+                            S<sub class="text-sky-600">2</sub>O<sub class="text-rose-600">6</sub> <span class="text-slate-400 text-sm">(:2) →</span> SO<sub>3</sub>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- I Tre Sistemi di Nomenclatura (Selettore Interattivo) -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                    <div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <span>🏷️</span> I Tre Sistemi di Nomenclatura a Confronto
+                        </h3>
+                        <p class="text-xs text-slate-500">Seleziona un sistema per visualizzare le regole di costruzione del nome e gli esempi.</p>
+                    </div>
+                    <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200 self-start">
+                        <button data-sys="iupac" class="sys-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-sm transition">IUPAC</button>
+                        <button data-sys="trad" class="sys-tab px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition">Tradizionale</button>
+                        <button data-sys="stock" class="sys-tab px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition">Stock</button>
+                    </div>
+                </div>
+
+                <!-- Contenuto Dinamico Sistema Nomenclatura -->
+                <div id="sysDetailContainer" class="bg-slate-50 rounded-xl border border-slate-200 p-4 sm:p-5">
+                    <!-- Popolato da JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- SEZIONE 2: LABORATORIO INTERATTIVO "COSTRUISCI E NOMINA L'OSSIDO"     -->
+        <!-- ===================================================================== -->
+        <section id="tab-laboratorio" class="tab-panel hidden space-y-5">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+
+                <!-- Colonna Sinistra (5/12): Selettore Elemento Chimico & N.O. -->
+                <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-5 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h2 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                                <span>⚛️</span> 1. Scegli l'Elemento
+                            </h2>
+                            <div class="flex items-center gap-2 text-[11px] font-semibold">
+                                <span class="flex items-center gap-1 text-blue-700"><span class="w-2.5 h-2.5 rounded-sm bg-blue-500"></span> Metallo</span>
+                                <span class="flex items-center gap-1 text-rose-700"><span class="w-2.5 h-2.5 rounded-sm bg-rose-500"></span> Non Metallo</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-3">Clicca su una tessera per selezionare l'elemento da combinare con l'ossigeno.</p>
+
+                        <!-- Griglia Tessere Elementi -->
+                        <div id="elementGrid" class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-4 gap-2">
+                            <!-- Generato da JS -->
+                        </div>
+                    </div>
+
+                    <!-- Selettore Numero di Ossidazione -->
+                    <div class="pt-4 border-t border-slate-100">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-sm font-bold text-slate-900">2. Seleziona il Numero di Ossidazione (N.O.)</h3>
+                            <span id="selectedElCategoryBadge" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">
+                                Metallo
+                            </span>
+                        </div>
+                        <p id="selectedElHint" class="text-xs text-slate-500 mb-3">
+                            Il Sodio (Na) appartiene al I gruppo ed ha un solo numero di ossidazione positivo.
+                        </p>
+                        <div id="oxButtonsContainer" class="flex flex-wrap gap-2">
+                            <!-- Generato da JS -->
+                        </div>
+                    </div>
+
+                    <!-- Pulsante Azione Regola dell'Incrocio -->
+                    <div class="pt-2">
+                        <button id="btnAnimateCross" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold shadow-sm transition flex items-center justify-center gap-2">
+                            <span>🔀</span> Rivedi Animazione Regola dell'Incrocio
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Colonna Destra (7/12): Lavagna Interattiva Incrocio, Formula e 3 Nomi -->
+                <div class="lg:col-span-7 space-y-4">
+
+                    <!-- Lavagna Passo-Passo: Incrocio, Semplificazione e Bilancio Cariche -->
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-5">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h2 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                                <span>🧮</span> Costruzione della Formula & Bilancio Cariche
+                            </h2>
+                            <span id="oxideTypePill" class="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wide bg-blue-100 text-blue-800 border border-blue-200">
+                                Ossido Basico
+                            </span>
+                        </div>
+
+                        <!-- Visualizzazione Grafica a 3 Step della Regola dell'Incrocio -->
+                        <div id="crossVisualBox" class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-center bg-slate-900 text-white rounded-xl p-4">
+                            <!-- Step A: Ioni / N.O. -->
+                            <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-3 text-center relative">
+                                <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold mb-1">1. Numeri di Ossidazione</div>
+                                <div class="font-mono-chem text-2xl sm:text-3xl font-bold flex items-center justify-center gap-3 py-1">
+                                    <span>
+                                        <span id="visSym1" class="text-blue-300">Na</span><sup id="visOx1" class="text-amber-400 text-base">+1</sup>
+                                    </span>
+                                    <span>
+                                        <span class="text-rose-400">O</span><sup class="text-sky-400 text-base">-2</sup>
+                                    </span>
+                                </div>
+                                <div class="text-[11px] text-slate-400 mt-1">Incrociamo i valori assoluti</div>
+                            </div>
+
+                            <!-- Step B: Incrocio Grezzo -->
+                            <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-3 text-center relative">
+                                <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold mb-1">2. Pedici Incrociati</div>
+                                <div class="font-mono-chem text-2xl sm:text-3xl font-bold py-1">
+                                    <span id="visSym2" class="text-blue-300">Na</span><sub id="visRawSubE" class="text-sky-400 text-lg">2</sub><span class="text-rose-400">O</span><sub id="visRawSubO" class="text-amber-400 text-lg">1</sub>
+                                </div>
+                                <div id="visSimplifyNote" class="text-[11px] text-slate-400 mt-1">Nessuna semplificazione</div>
+                            </div>
+
+                            <!-- Step C: Formula Finale Minimi Termini -->
+                            <div class="bg-gradient-to-br from-slate-800 to-slate-950 border-2 border-emerald-500/60 rounded-xl p-3 text-center shadow-lg">
+                                <div class="text-[10px] uppercase tracking-wider text-emerald-400 font-bold mb-1">3. Formula Chimica Finale</div>
+                                <div id="visFinalFormula" class="font-mono-chem text-3xl sm:text-4xl font-extrabold text-white py-0.5 tracking-wide">
+                                    Na<sub>2</sub>O
+                                </div>
+                                <div class="text-[11px] text-emerald-300 mt-1 font-medium">Neutro (Carica = 0)</div>
+                            </div>
+                        </div>
+
+                        <!-- Barra Verifica Bilancio di Carica -->
+                        <div class="mt-3 bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+                            <span class="font-bold text-slate-700">⚖️ Verifica elettroneutralità:</span>
+                            <span id="chargeBalanceEq" class="font-mono-chem font-bold text-slate-900 bg-white px-2.5 py-1 rounded border border-slate-200">
+                                2 × (+1) + 1 × (-2) = +2 - 2 = 0
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Schede dei 3 Nomi Generati con Spiegazione Grammaticale -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <!-- Nomenclatura IUPAC -->
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[11px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
+                                        1. IUPAC
+                                    </span>
+                                    <span class="text-[11px] text-slate-400 font-medium">Prefissi greci</span>
+                                </div>
+                                <div id="nameIupac" class="text-base sm:text-lg font-extrabold text-slate-900 leading-snug mb-2">
+                                    Monossido di disodio
+                                </div>
+                            </div>
+                            <p id="explainIupac" class="text-xs text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-100 leading-relaxed">
+                                1 atomo di O (<em>monossido</em>) + 2 atomi di Na (<em>disodio</em>).
+                            </p>
+                        </div>
+
+                        <!-- Nomenclatura Tradizionale -->
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[11px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-800">
+                                        2. Tradizionale
+                                    </span>
+                                    <span id="tradCategoryTag" class="text-[11px] text-slate-500 font-semibold">Ossido / Anidride</span>
+                                </div>
+                                <div id="nameTrad" class="text-base sm:text-lg font-extrabold text-slate-900 leading-snug mb-2">
+                                    Ossido di sodio
+                                </div>
+                            </div>
+                            <p id="explainTrad" class="text-xs text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-100 leading-relaxed">
+                                Ha un solo N.O. (+1): si usa <em>"ossido di + nome elemento"</em> senza suffissi.
+                            </p>
+                        </div>
+
+                        <!-- Notazione di Stock -->
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[11px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-purple-100 text-purple-800">
+                                        3. Stock
+                                    </span>
+                                    <span class="text-[11px] text-slate-400 font-medium">Numeri romani</span>
+                                </div>
+                                <div id="nameStock" class="text-base sm:text-lg font-extrabold text-slate-900 leading-snug mb-2">
+                                    Ossido di sodio
+                                </div>
+                            </div>
+                            <p id="explainStock" class="text-xs text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-100 leading-relaxed">
+                                Il numero romano (I) si omette perché il sodio ha un unico N.O. possibile.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- SEZIONE 3: TAVOLA DI CONFRONTO RAPIDO ED ECCEZIONI NOTEVOLI           -->
+        <!-- ===================================================================== -->
+        <section id="tab-eccezioni" class="tab-panel hidden space-y-5">
+            <!-- Box Eccezioni Notevoli (Cromo, Manganese, Azoto, Perossidi) -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+                <div class="mb-4">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <span>⚠️</span> Casi Particolari ed Eccezioni Notevoli
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-500">
+                        Alcuni metalli di transizione hanno un comportamento <strong>anfotero</strong> (cambia in base al numero di ossidazione), mentre altri composti con l'ossigeno non sono ossidi ordinari.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Eccezione 1: Cromo -->
+                    <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-bold text-slate-900 text-base">1. Il Cromo (Cr) — Metallo di transizione</h3>
+                            <span class="font-mono-chem text-xs font-bold bg-slate-200 text-slate-800 px-2 py-0.5 rounded">N.O.: +2, +3, +6</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Pur essendo un metallo, il cromo cambia carattere chimico al crescere del numero di ossidazione:
+                        </p>
+                        <ul class="space-y-1.5 text-xs">
+                            <li class="bg-white p-2 rounded-lg border border-blue-200 flex items-center justify-between">
+                                <span><strong class="font-mono-chem text-blue-700">CrO</strong> (N.O. +2) → <strong>Ossido cromoso</strong></span>
+                                <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-bold text-[10px]">BASICO</span>
+                            </li>
+                            <li class="bg-white p-2 rounded-lg border border-purple-200 flex items-center justify-between">
+                                <span><strong class="font-mono-chem text-purple-700">Cr₂O₃</strong> (N.O. +3) → <strong>Ossido cromico</strong></span>
+                                <span class="px-2 py-0.5 rounded bg-purple-100 text-purple-800 font-bold text-[10px]">ANFOTERO</span>
+                            </li>
+                            <li class="bg-white p-2 rounded-lg border border-rose-200 flex items-center justify-between">
+                                <span><strong class="font-mono-chem text-rose-700">CrO₃</strong> (N.O. +6) → <strong>Anidride cromica</strong></span>
+                                <span class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 font-bold text-[10px]">ACIDO</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Eccezione 2: Manganese -->
+                    <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-bold text-slate-900 text-base">2. Il Manganese (Mn) — 5 Numeri di Ossidazione</h3>
+                            <span class="font-mono-chem text-xs font-bold bg-slate-200 text-slate-800 px-2 py-0.5 rounded">+2, +3, +4, +6, +7</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Con N.O. bassi (+2, +3) forma <strong>ossidi basici</strong>; con N.O. alti (+6, +7) forma <strong>anidridi</strong> (ossidi acidi):
+                        </p>
+                        <ul class="space-y-1.5 text-xs">
+                            <li class="bg-white p-2 rounded-lg border border-blue-200 flex items-center justify-between">
+                                <span><strong class="font-mono-chem text-blue-700">MnO</strong> (+2) / <strong class="font-mono-chem text-blue-700">Mn₂O₃</strong> (+3) → Ossido manganoso / manganico</span>
+                                <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-bold text-[10px]">BASICI</span>
+                            </li>
+                            <li class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between">
+                                <span><strong class="font-mono-chem text-slate-700">MnO₂</strong> (+4) → Diossido di manganese (anfotero)</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-bold text-[10px]">ANFOTERO</span>
+                            </li>
+                            <li class="bg-white p-2 rounded-lg border border-rose-200 flex items-center justify-between">
+                                <span><strong class="font-mono-chem text-rose-700">MnO₃</strong> (+6) / <strong class="font-mono-chem text-rose-700">Mn₂O₇</strong> (+7) → Anidride manganica / permanganica</span>
+                                <span class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 font-bold text-[10px]">ACIDI</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Eccezione 3: Ossidi neutri dell'Azoto e Carbonio -->
+                    <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-4 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-bold text-slate-900 text-base">3. Gli Ossidi Neutri (NO, N₂O, CO)</h3>
+                            <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded">Non formano acidi</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Pur essendo ossidi di non metalli, <strong>CO</strong> (monossido di carbonio), <strong>NO</strong> (monossido di azoto) e <strong>N₂O</strong> (protossido di azoto o gas esilarante) sono <strong>ossidi neutri</strong>: non reagiscono con l'acqua per formare ossiacidi e nella nomenclatura tradizionale non si chiamano "anidridi", bensì <em>ossido di carbonio</em>, <em>ossido nitrico</em> e <em>ossido nitroso</em>. Le vere anidridi dell'azoto sono <strong>N₂O₃</strong> (+3, anidride nitrosa) e <strong>N₂O₅</strong> (+5, anidride nitrica).
+                        </p>
+                    </div>
+
+                    <!-- Eccezione 4: I Perossidi -->
+                    <div class="rounded-xl border border-amber-300 bg-amber-50/60 p-4 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-bold text-amber-950 text-base">4. Attenzione ai Perossidi! (N.O. Ossigeno = -1)</h3>
+                            <span class="font-mono-chem text-xs font-bold bg-amber-200 text-amber-900 px-2 py-0.5 rounded">Gruppo -O-O-</span>
+                        </div>
+                        <p class="text-xs text-amber-900 leading-relaxed">
+                            Nei <strong>perossidi</strong> (es. <code class="font-mono-chem font-bold">H₂O₂</code> acqua ossigenata, <code class="font-mono-chem font-bold">Na₂O₂</code> perossido di sodio, <code class="font-mono-chem font-bold">BaO₂</code> perossido di bario), due atomi di ossigeno sono legati tra loro con un legame covalente singolo e ciascuno ha <strong>N.O. = -1</strong> (non -2!).<br>
+                            <strong>Trucco per riconoscerli:</strong> se applichi la formula dell'ossido al Sodio (+1), ottieni <code class="font-mono-chem font-bold">Na₂O</code>. Se vedi un ossigeno in più (<code class="font-mono-chem font-bold">Na₂O₂</code>, non semplificato!), sei di fronte a un <strong>perossido</strong>!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tavola di Confronto Rapido Completa -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                    <div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <span>📋</span> Prontuario Rapido dei Principali Ossidi
+                        </h3>
+                        <p class="text-xs text-slate-500">Filtra per categoria o cerca una formula/nome per consultazione veloce.</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <input id="tableSearch" type="text" placeholder="Cerca formula o nome (es. Fe2O3, solforica)..." class="px-3 py-1.5 text-xs rounded-lg border border-slate-300 focus:outline-none focus:border-slate-900 w-56">
+                        <select id="tableFilter" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-300 bg-white">
+                            <option value="all">Tutti gli ossidi</option>
+                            <option value="basico">Solo Ossidi Basici</option>
+                            <option value="acido">Solo Ossidi Acidi (Anidridi)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-slate-200">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
+                                <th class="py-2.5 px-3">Formula</th>
+                                <th class="py-2.5 px-3">Tipo</th>
+                                <th class="py-2.5 px-3">N.O.</th>
+                                <th class="py-2.5 px-3">Nome IUPAC</th>
+                                <th class="py-2.5 px-3">Nome Tradizionale</th>
+                                <th class="py-2.5 px-3">Notazione di Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody id="referenceTableBody" class="divide-y divide-slate-200 bg-white">
+                            <!-- Popolato da JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- SEZIONE 4: MODALITÀ ESERCITAZIONE E QUIZ INTERATTIVO A LIVELLI        -->
+        <!-- ===================================================================== -->
+        <section id="tab-quiz" class="tab-panel hidden space-y-5">
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <!-- Intestazione Quiz & Selettore Livello -->
+                <div class="bg-slate-900 text-white p-5">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <h2 class="text-lg sm:text-xl font-bold flex items-center gap-2">
+                                <span>🎯</span> Verifica delle Competenze
+                            </h2>
+                            <p class="text-xs text-slate-300 mt-0.5">Scegli il livello di difficoltà e metti alla prova la tua preparazione</p>
+                        </div>
+                        <div class="flex bg-slate-800 p-1 rounded-xl border border-slate-700 self-start">
+                            <button id="btnLevelBase" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white shadow transition">
+                                Livello Base
+                            </button>
+                            <button id="btnLevelTecnico" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">
+                                Livello Tecnico
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Barra Progresso Quiz -->
+                    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span id="quizProgressLabel" class="font-semibold text-slate-300">Domanda 1 di 6</span>
+                        <span id="quizScoreLabel" class="font-mono-chem font-bold text-emerald-400">Punteggio: 0 / 6</span>
+                    </div>
+                    <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden mt-1.5">
+                        <div id="quizProgressBar" class="h-full bg-blue-500 transition-all duration-300" style="width: 16.6%;"></div>
+                    </div>
+                </div>
+
+                <!-- Area Domanda Attiva -->
+                <div id="quizQuestionArea" class="p-5 sm:p-6 space-y-4">
+                    <!-- Popolato da JS -->
+                </div>
+
+                <!-- Area Riepilogo Finale (nascosta finché non termina il quiz) -->
+                <div id="quizSummaryArea" class="hidden p-6 text-center space-y-4">
+                    <!-- Popolato da JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-3 px-4 text-center text-xs text-slate-500">
+        Laboratorio Digitale di Chimica Generale e Inorganica • Nomenclatura IUPAC, Tradizionale e Stock degli Ossidi
+    </footer>
+
+    <script>
+        // =========================================================================
+        // DATABASE CHIMICO DEGLI ELEMENTI E DEGLI OSSIDI
+        // =========================================================================
+        const ELEMENTS_DB = [
+            {
+                symbol: "Na", name: "Sodio", rootTrad: "sodio", type: "basico", group: "I Gruppo (Alcalini)",
+                hint: "Metallo alcalino (I gruppo): ha un unico numero di ossidazione (+1).",
+                oxStates: [
+                    {
+                        ox: 1, roman: "I",
+                        iupac: "Monossido di disodio",
+                        iupacWhy: "1 atomo di ossigeno (monossido) e 2 atomi di sodio (disodio).",
+                        trad: "Ossido di sodio",
+                        tradWhy: "Avendo un solo N.O. (+1), nella nomenclatura tradizionale non si usano suffissi (-oso/-ico).",
+                        stock: "Ossido di sodio",
+                        stockWhy: "Con un unico N.O. possibile, il numero romano (I) viene omesso."
+                    }
+                ]
+            },
+            {
+                symbol: "Ca", name: "Calcio", rootTrad: "calcio", type: "basico", group: "II Gruppo (Alcalino-terrosi)",
+                hint: "Metallo alcalino-terroso (II gruppo): ha un unico numero di ossidazione (+2). Richiede semplificazione!",
+                oxStates: [
+                    {
+                        ox: 2, roman: "II",
+                        iupac: "Monossido di calcio",
+                        iupacWhy: "Dall'incrocio si ottiene Ca₂O₂, che semplificato per 2 diventa CaO (1 O e 1 Ca).",
+                        trad: "Ossido di calcio",
+                        tradWhy: "Conosciuto anche come 'calce viva'. Un solo N.O. (+2) → nessun suffisso.",
+                        stock: "Ossido di calcio",
+                        stockWhy: "Con un solo N.O. possibile, il numero romano (II) si omette."
+                    }
+                ]
+            },
+            {
+                symbol: "Al", name: "Alluminio", rootTrad: "alluminio", type: "basico", group: "III Gruppo (13)",
+                hint: "Metallo del III gruppo (13): ha un unico numero di ossidazione (+3).",
+                oxStates: [
+                    {
+                        ox: 3, roman: "III",
+                        iupac: "Triossido di dialluminio",
+                        iupacWhy: "3 atomi di ossigeno (triossido) e 2 atomi di alluminio (dialluminio).",
+                        trad: "Ossido di alluminio",
+                        tradWhy: "Un solo N.O. (+3): si usa 'ossido di' seguito dal nome dell'elemento.",
+                        stock: "Ossido di alluminio",
+                        stockWhy: "Unico N.O. (+3): numero romano omesso."
+                    }
+                ]
+            },
+            {
+                symbol: "Fe", name: "Ferro", rootTrad: "ferr", type: "basico", group: "Metallo di transizione",
+                hint: "Il Ferro ha DUE numeri di ossidazione (+2 e +3): usa i suffissi -oso (minore) e -ico (maggiore).",
+                oxStates: [
+                    {
+                        ox: 2, roman: "II",
+                        iupac: "Monossido di ferro",
+                        iupacWhy: "Fe₂O₂ si semplifica in FeO: 1 atomo di O (monossido) e 1 di Fe.",
+                        trad: "Ossido ferroso",
+                        tradWhy: "+2 è il N.O. minore tra (+2, +3) → si applica il suffisso -oso alla radice 'ferr-'.",
+                        stock: "Ossido di ferro (II)",
+                        stockWhy: "Il numero romano (II) indica esplicitamente il N.O. +2 del ferro."
+                    },
+                    {
+                        ox: 3, roman: "III",
+                        iupac: "Triossido di diferro",
+                        iupacWhy: "3 atomi di O (triossido) e 2 atomi di Fe (diferro).",
+                        trad: "Ossido ferrico",
+                        tradWhy: "+3 è il N.O. maggiore tra (+2, +3) → si applica il suffisso -ico alla radice 'ferr-'.",
+                        stock: "Ossido di ferro (III)",
+                        stockWhy: "Il numero romano (III) indica esplicitamente il N.O. +3 del ferro."
+                    }
+                ]
+            },
+            {
+                symbol: "Cu", name: "Rame", rootTrad: "rame", type: "basico", group: "Metallo di transizione",
+                hint: "Il Rame ha DUE numeri di ossidazione (+1 e +2): usa i suffissi -oso (+1) e -ico (+2).",
+                oxStates: [
+                    {
+                        ox: 1, roman: "I",
+                        iupac: "Monossido di dirame",
+                        iupacWhy: "1 atomo di O (monossido) e 2 atomi di Cu (dirame).",
+                        trad: "Ossido rameoso",
+                        tradWhy: "+1 è il N.O. minore tra (+1, +2) → suffisso -oso.",
+                        stock: "Ossido di rame (I)",
+                        stockWhy: "Il numero romano (I) distingue questo ossido da quello con N.O. +2."
+                    },
+                    {
+                        ox: 2, roman: "II",
+                        iupac: "Monossido di rame",
+                        iupacWhy: "Cu₂O₂ si semplifica in CuO: 1 atomo di O e 1 atomo di Cu.",
+                        trad: "Ossido rameico",
+                        tradWhy: "+2 è il N.O. maggiore tra (+1, +2) → suffisso -ico.",
+                        stock: "Ossido di rame (II)",
+                        stockWhy: "Il numero romano (II) indica il N.O. +2 del rame."
+                    }
+                ]
+            },
+            {
+                symbol: "Pb", name: "Piombo", rootTrad: "piomb", type: "basico", group: "IV Gruppo (14)",
+                hint: "Il Piombo è un metallo con DUE numeri di ossidazione (+2 e +4). Entrambi richiedono semplificazione!",
+                oxStates: [
+                    {
+                        ox: 2, roman: "II",
+                        iupac: "Monossido di piombo",
+                        iupacWhy: "Pb₂O₂ semplificato per 2 diventa PbO (1 O e 1 Pb).",
+                        trad: "Ossido piomboso",
+                        tradWhy: "+2 è il N.O. minore tra (+2, +4) → suffisso -oso.",
+                        stock: "Ossido di piombo (II)",
+                        stockWhy: "Il numero romano (II) specifica il N.O. +2."
+                    },
+                    {
+                        ox: 4, roman: "IV",
+                        iupac: "Diossido di piombo",
+                        iupacWhy: "Pb₂O₄ semplificato per 2 diventa PbO₂: 2 atomi di O (diossido) e 1 di Pb.",
+                        trad: "Ossido piombico",
+                        tradWhy: "+4 è il N.O. maggiore tra (+2, +4) → suffisso -ico.",
+                        stock: "Ossido di piombo (IV)",
+                        stockWhy: "Il numero romano (IV) specifica il N.O. +4."
+                    }
+                ]
+            },
+            {
+                symbol: "C", name: "Carbonio", rootTrad: "carbon", type: "acido", group: "IV Gruppo (14 - Non Metallo)",
+                hint: "Non metallo: con +4 forma l'anidride carbonica (ossido acido); con +2 forma CO (ossido neutro).",
+                oxStates: [
+                    {
+                        ox: 2, roman: "II",
+                        iupac: "Monossido di carbonio",
+                        iupacWhy: "C₂O₂ semplificato per 2 diventa CO: 1 atomo di O (monossido) e 1 di C.",
+                        trad: "Ossido di carbonio (neutro)",
+                        tradWhy: "Eccezione: CO è un ossido neutro (non reagisce con acqua per dare acidi) e non si chiama anidride.",
+                        stock: "Ossido di carbonio (II)",
+                        stockWhy: "Indica il N.O. +2 del carbonio."
+                    },
+                    {
+                        ox: 4, roman: "IV",
+                        iupac: "Diossido di carbonio",
+                        iupacWhy: "C₂O₄ semplificato per 2 diventa CO₂: 2 atomi di O (diossido) e 1 di C.",
+                        trad: "Anidride carbonica",
+                        tradWhy: "Non metallo con il N.O. maggiore (+4) → termine 'anidride' + suffisso -ica.",
+                        stock: "Ossido di carbonio (IV)",
+                        stockWhy: "Nella notazione di Stock si usa sempre 'Ossido di...' con numero romano (IV)."
+                    }
+                ]
+            },
+            {
+                symbol: "N", name: "Azoto", rootTrad: "nitr", type: "acido", group: "V Gruppo (15 - Non Metallo)",
+                hint: "Le due principali anidridi dell'Azoto hanno N.O. +3 (nitrosa) e +5 (nitrica).",
+                oxStates: [
+                    {
+                        ox: 3, roman: "III",
+                        iupac: "Triossido di diazoto",
+                        iupacWhy: "3 atomi di O (triossido) e 2 atomi di N (diazoto).",
+                        trad: "Anidride nitrosa",
+                        tradWhy: "+3 è il N.O. minore tra le due anidridi (+3, +5) → suffisso -osa (radice 'nitr-').",
+                        stock: "Ossido di azoto (III)",
+                        stockWhy: "Specifica il N.O. +3 dell'azoto."
+                    },
+                    {
+                        ox: 5, roman: "V",
+                        iupac: "Pentossido di diazoto",
+                        iupacWhy: "5 atomi di O (pentossido) e 2 atomi di N (diazoto).",
+                        trad: "Anidride nitrica",
+                        tradWhy: "+5 è il N.O. maggiore tra le due anidridi (+3, +5) → suffisso -ica.",
+                        stock: "Ossido di azoto (V)",
+                        stockWhy: "Specifica il N.O. +5 dell'azoto."
+                    }
+                ]
+            },
+            {
+                symbol: "P", name: "Fosforo", rootTrad: "fosfor", type: "acido", group: "V Gruppo (15 - Non Metallo)",
+                hint: "Non metallo del V gruppo: forma due anidridi con N.O. +3 (fosforosa) e +5 (fosforica).",
+                oxStates: [
+                    {
+                        ox: 3, roman: "III",
+                        iupac: "Triossido di difosforo",
+                        iupacWhy: "3 atomi di O (triossido) e 2 atomi di P (difosforo).",
+                        trad: "Anidride fosforosa",
+                        tradWhy: "+3 è il N.O. minore tra (+3, +5) → 'Anidride' + suffisso -osa.",
+                        stock: "Ossido di fosforo (III)",
+                        stockWhy: "Specifica il N.O. +3 del fosforo."
+                    },
+                    {
+                        ox: 5, roman: "V",
+                        iupac: "Pentossido di difosforo",
+                        iupacWhy: "5 atomi di O (pentossido) e 2 atomi di P (difosforo).",
+                        trad: "Anidride fosforica",
+                        tradWhy: "+5 è il N.O. maggiore tra (+3, +5) → 'Anidride' + suffisso -ica.",
+                        stock: "Ossido di fosforo (V)",
+                        stockWhy: "Specifica il N.O. +5 del fosforo."
+                    }
+                ]
+            },
+            {
+                symbol: "S", name: "Zolfo", rootTrad: "solfor", type: "acido", group: "VI Gruppo (16 - Non Metallo)",
+                hint: "Lo Zolfo forma due anidridi fondamentali con N.O. +4 (solforosa) e +6 (solforica). Attenzione alla semplificazione!",
+                oxStates: [
+                    {
+                        ox: 4, roman: "IV",
+                        iupac: "Diossido di zolfo",
+                        iupacWhy: "S₂O₄ semplificato per 2 diventa SO₂: 2 atomi di O (diossido) e 1 di S.",
+                        trad: "Anidride solforosa",
+                        tradWhy: "+4 è il N.O. minore tra (+4, +6) → suffisso -osa (radice 'solfor-').",
+                        stock: "Ossido di zolfo (IV)",
+                        stockWhy: "Specifica il N.O. +4 dello zolfo."
+                    },
+                    {
+                        ox: 6, roman: "VI",
+                        iupac: "Triossido di zolfo",
+                        iupacWhy: "S₂O₆ semplificato per 2 diventa SO₃: 3 atomi di O (triossido) e 1 di S.",
+                        trad: "Anidride solforica",
+                        tradWhy: "+6 è il N.O. maggiore tra (+4, +6) → suffisso -ica (radice 'solfor-').",
+                        stock: "Ossido di zolfo (VI)",
+                        stockWhy: "Specifica il N.O. +6 dello zolfo."
+                    }
+                ]
+            },
+            {
+                symbol: "Cl", name: "Cloro", rootTrad: "clor", type: "acido", group: "VII Gruppo (17 - Alogeni)",
+                hint: "Il Cloro ha QUATTRO numeri di ossidazione positivi (+1, +3, +5, +7): utilizza tutti e 4 gli affissi tradizionali!",
+                oxStates: [
+                    {
+                        ox: 1, roman: "I",
+                        iupac: "Monossido di dicloro",
+                        iupacWhy: "1 atomo di O (monossido) e 2 atomi di Cl (dicloro).",
+                        trad: "Anidride ipoclorosa",
+                        tradWhy: "+1 è il N.O. più basso di 4 valori (+1, +3, +5, +7) → prefisso ipo- e suffisso -osa.",
+                        stock: "Ossido di cloro (I)",
+                        stockWhy: "Indica il N.O. +1 del cloro."
+                    },
+                    {
+                        ox: 3, roman: "III",
+                        iupac: "Triossido di dicloro",
+                        iupacWhy: "3 atomi di O (triossido) e 2 atomi di Cl (dicloro).",
+                        trad: "Anidride clorosa",
+                        tradWhy: "+3 è il secondo N.O. in ordine crescente → solo suffisso -osa.",
+                        stock: "Ossido di cloro (III)",
+                        stockWhy: "Indica il N.O. +3 del cloro."
+                    },
+                    {
+                        ox: 5, roman: "V",
+                        iupac: "Pentossido di dicloro",
+                        iupacWhy: "5 atomi di O (pentossido) e 2 atomi di Cl (dicloro).",
+                        trad: "Anidride clorica",
+                        tradWhy: "+5 è il terzo N.O. in ordine crescente → solo suffisso -ica.",
+                        stock: "Ossido di cloro (V)",
+                        stockWhy: "Indica il N.O. +5 del cloro."
+                    },
+                    {
+                        ox: 7, roman: "VII",
+                        iupac: "Eptossido di dicloro",
+                        iupacWhy: "7 atomi di O (eptossido) e 2 atomi di Cl (dicloro).",
+                        trad: "Anidride perclorica",
+                        tradWhy: "+7 è il N.O. più alto di 4 valori → prefisso per- e suffisso -ica.",
+                        stock: "Ossido di cloro (VII)",
+                        stockWhy: "Indica il N.O. +7 del cloro."
+                    }
+                ]
+            }
+        ];
+
+        // =========================================================================
+        // 1. GESTIONE NAVIGAZIONE A SCHEDE (TABS)
+        // =========================================================================
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.getAttribute('data-tab');
+                tabButtons.forEach(b => {
+                    b.classList.remove('active');
+                    b.classList.add('text-slate-300');
+                });
+                btn.classList.add('active');
+                btn.classList.remove('text-slate-300');
+
+                tabPanels.forEach(panel => {
+                    if (panel.id === `tab-${target}`) {
+                        panel.classList.remove('hidden');
+                    } else {
+                        panel.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // =========================================================================
+        // 2. SEZIONE TEORIA: SELETTORE SISTEMI DI NOMENCLATURA
+        // =========================================================================
+        const SYS_INFO = {
+            iupac: {
+                title: "Nomenclatura IUPAC (Basata sul numero di atomi)",
+                subtitle: "È la nomenclatura internazionale più immediata: legge direttamente gli indici (pedici) della formula usando i prefissi moltiplicativi greci.",
+                schema: "[Prefisso]-ossido di [Prefisso]-[Nome Elemento]",
+                badges: [
+                    { label: "1 = mono-", color: "bg-slate-200 text-slate-800" },
+                    { label: "2 = di-", color: "bg-sky-100 text-sky-800" },
+                    { label: "3 = tri-", color: "bg-indigo-100 text-indigo-800" },
+                    { label: "4 = tetra-", color: "bg-purple-100 text-purple-800" },
+                    { label: "5 = penta-", color: "bg-amber-100 text-amber-800" },
+                    { label: "7 = epta-", color: "bg-rose-100 text-rose-800" }
+                ],
+                examples: [
+                    { f: "Fe₂O₃", n: "Triossido di diferro (3 ossigeni, 2 ferri)" },
+                    { f: "CO₂", n: "Diossido di carbonio (2 ossigeni, 1 carbonio — 'mono' sul secondo elemento si omette)" },
+                    { f: "Cl₂O₇", n: "Eptossido di dicloro (7 ossigeni, 2 clori)" }
+                ]
+            },
+            trad: {
+                title: "Nomenclatura Tradizionale (Basata sul Numero di Ossidazione)",
+                subtitle: "Distingue subito gli ossidi basici ('Ossido...') dagli ossidi acidi ('Anidride...') e usa prefissi/suffissi in base a quanti N.O. positivi possiede l'elemento.",
+                schema: "Ossido / Anidride + [ipo-/per-] + Radice Elemento + [-oso/-ico]",
+                badges: [
+                    { label: "1 N.O. → 'di + nome'", color: "bg-slate-200 text-slate-800" },
+                    { label: "2 N.O. → -oso (min) / -ico (max)", color: "bg-blue-100 text-blue-800" },
+                    { label: "4 N.O. → ipo-...-oso / -oso / -ico / per-...-ico", color: "bg-rose-100 text-rose-800" }
+                ],
+                examples: [
+                    { f: "FeO / Fe₂O₃", n: "Ossido ferroso (+2, minore) / Ossido ferrico (+3, maggiore)" },
+                    { f: "SO₂ / SO₃", n: "Anidride solforosa (+4, minore) / Anidride solforica (+6, maggiore)" },
+                    { f: "Cl₂O → Cl₂O₇", n: "Anidride ipoclorosa (+1), clorosa (+3), clorica (+5), perclorica (+7)" }
+                ]
+            },
+            stock: {
+                title: "Notazione di Stock (Con i Numeri Romani)",
+                subtitle: "Utilizza sempre il termine 'Ossido di' (anche per i non metalli) seguito dal nome dell'elemento e dal suo numero di ossidazione in cifre romane tra parentesi.",
+                schema: "Ossido di [Nome Elemento] + (N.O. in numeri romani)",
+                badges: [
+                    { label: "(I) = +1", color: "bg-slate-200 text-slate-800" },
+                    { label: "(II) = +2", color: "bg-sky-100 text-sky-800" },
+                    { label: "(III) = +3", color: "bg-indigo-100 text-indigo-800" },
+                    { label: "(IV) = +4", color: "bg-purple-100 text-purple-800" },
+                    { label: "(V) = +5", color: "bg-amber-100 text-amber-800" },
+                    { label: "(VI) = +6 / (VII) = +7", color: "bg-rose-100 text-rose-800" }
+                ],
+                examples: [
+                    { f: "Fe₂O₃", n: "Ossido di ferro (III)" },
+                    { f: "SO₃", n: "Ossido di zolfo (VI)" },
+                    { f: "CaO", n: "Ossido di calcio (numero romano omesso perché il calcio ha un solo N.O.)" }
+                ]
+            }
+        };
+
+        function renderSysDetail(sysKey) {
+            const info = SYS_INFO[sysKey];
+            const container = document.getElementById('sysDetailContainer');
+            container.innerHTML = `
+                <div class="space-y-3">
+                    <div>
+                        <h4 class="text-base font-bold text-slate-900">${info.title}</h4>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-0.5">${info.subtitle}</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-lg px-3.5 py-2 font-mono-chem text-xs sm:text-sm font-bold text-slate-800">
+                        Schema: <span class="text-blue-700">${info.schema}</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${info.badges.map(b => `<span class="text-xs font-bold px-2.5 py-1 rounded-md ${b.color}">${b.label}</span>`).join('')}
+                    </div>
+                    <div class="pt-2 border-t border-slate-200/80 space-y-1.5">
+                        <div class="text-xs font-bold text-slate-500 uppercase">Esempi pratici:</div>
+                        ${info.examples.map(ex => `
+                            <div class="text-xs flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 bg-white px-3 py-1.5 rounded-lg border border-slate-200">
+                                <span class="font-mono-chem font-bold text-slate-900 min-w-[85px]">${ex.f}</span>
+                                <span class="text-slate-600">→ ${ex.n}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        document.querySelectorAll('.sys-tab').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.sys-tab').forEach(b => {
+                    b.className = 'sys-tab px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition';
+                });
+                btn.className = 'sys-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-sm transition';
+                renderSysDetail(btn.getAttribute('data-sys'));
+            });
+        });
+        renderSysDetail('iupac');
+
+        // =========================================================================
+        // 3. LABORATORIO INTERATTIVO "COSTRUISCI E NOMINA L'OSSIDO"
+        // =========================================================================
+        let selectedElement = ELEMENTS_DB[0]; // Default: Sodio (Na)
+        let selectedOxIndex = 0;
+
+        function formatFormulaHTML(symbol, subE, subO) {
+            const sE = subE > 1 ? `<sub>${subE}</sub>` : '';
+            const sO = subO > 1 ? `<sub>${subO}</sub>` : '';
+            return `${symbol}${sE}O${sO}`;
+        }
+
+        function renderElementGrid() {
+            const grid = document.getElementById('elementGrid');
+            grid.innerHTML = '';
+
+            ELEMENTS_DB.forEach((el) => {
+                const isSelected = el.symbol === selectedElement.symbol;
+                const isBasico = el.type === 'basico';
+                const btn = document.createElement('button');
+
+                let baseClasses = 'p-2.5 rounded-xl border-2 text-left transition flex flex-col justify-between ';
+                if (isSelected) {
+                    baseClasses += isBasico
+                        ? 'bg-blue-600 border-blue-800 text-white shadow-md scale-[1.02]'
+                        : 'bg-rose-600 border-rose-800 text-white shadow-md scale-[1.02]';
+                } else {
+                    baseClasses += isBasico
+                        ? 'bg-blue-50/60 border-blue-200 hover:border-blue-400 text-slate-900'
+                        : 'bg-rose-50/60 border-rose-200 hover:border-rose-400 text-slate-900';
+                }
+
+                btn.className = baseClasses;
+                btn.innerHTML = `
+                    <div class="flex items-center justify-between w-full">
+                        <span class="font-mono-chem text-lg font-extrabold leading-none">${el.symbol}</span>
+                        <span class="text-[10px] font-bold px-1.5 py-0.5 rounded ${isSelected ? 'bg-white/20 text-white' : (isBasico ? 'bg-blue-100 text-blue-800' : 'bg-rose-100 text-rose-800')}">
+                            ${isBasico ? 'Me' : 'NMe'}
+                        </span>
+                    </div>
+                    <div class="text-[11px] font-semibold mt-1.5 truncate ${isSelected ? 'text-white/95' : 'text-slate-600'}">${el.name}</div>
+                `;
+
+                btn.addEventListener('click', () => {
+                    selectedElement = el;
+                    selectedOxIndex = 0;
+                    renderElementGrid();
+                    updateLabWorkspace(true);
+                });
+
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateLabWorkspace(triggerAnim = false) {
+            const isBasico = selectedElement.type === 'basico';
+            const oxObj = selectedElement.oxStates[selectedOxIndex];
+
+            // Badge categoria e hint
+            const catBadge = document.getElementById('selectedElCategoryBadge');
+            catBadge.textContent = isBasico ? `Metallo • ${selectedElement.group}` : `Non Metallo • ${selectedElement.group}`;
+            catBadge.className = isBasico
+                ? 'text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800'
+                : 'text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-800';
+
+            document.getElementById('selectedElHint').textContent = selectedElement.hint;
+
+            // Bottoni N.O.
+            const oxContainer = document.getElementById('oxButtonsContainer');
+            oxContainer.innerHTML = '';
+            selectedElement.oxStates.forEach((st, idx) => {
+                const active = idx === selectedOxIndex;
+                const b = document.createElement('button');
+                b.className = active
+                    ? 'px-4 py-2 rounded-xl font-mono-chem text-sm font-extrabold bg-slate-900 text-amber-300 border-2 border-slate-900 shadow-sm transition'
+                    : 'px-4 py-2 rounded-xl font-mono-chem text-sm font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 border-2 border-slate-200 transition';
+                b.textContent = `+${st.ox} (${st.roman})`;
+                b.addEventListener('click', () => {
+                    selectedOxIndex = idx;
+                    updateLabWorkspace(true);
+                });
+                oxContainer.appendChild(b);
+            });
+
+            // Pill tipo ossido
+            const typePill = document.getElementById('oxideTypePill');
+            if (selectedElement.symbol === 'C' && oxObj.ox === 2) {
+                typePill.textContent = 'Ossido Neutro (Eccezione)';
+                typePill.className = 'px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wide bg-amber-100 text-amber-800 border border-amber-200';
+            } else if (isBasico) {
+                typePill.textContent = 'Ossido Basico (Metallo + O)';
+                typePill.className = 'px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wide bg-blue-100 text-blue-800 border border-blue-200';
+            } else {
+                typePill.textContent = 'Ossido Acido / Anidride (Non Metallo + O)';
+                typePill.className = 'px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wide bg-rose-100 text-rose-800 border border-rose-200';
+            }
+
+            // Calcolo indici incrociati e semplificazione
+            const rawSubE = 2;
+            const rawSubO = oxObj.ox;
+            const canSimplify = (rawSubO % 2 === 0);
+            const finalSubE = canSimplify ? 1 : rawSubE;
+            const finalSubO = canSimplify ? (rawSubO / 2) : rawSubO;
+
+            // Aggiorna visualizzazione 3 step
+            const symClass = isBasico ? 'text-blue-300' : 'text-rose-300';
+            const visSym1 = document.getElementById('visSym1');
+            visSym1.textContent = selectedElement.symbol;
+            visSym1.className = symClass;
+            document.getElementById('visOx1').textContent = `+${oxObj.ox}`;
+
+            const visSym2 = document.getElementById('visSym2');
+            visSym2.textContent = selectedElement.symbol;
+            visSym2.className = symClass;
+            document.getElementById('visRawSubE').textContent = rawSubE;
+            document.getElementById('visRawSubO').textContent = rawSubO;
+
+            const simpNote = document.getElementById('visSimplifyNote');
+            if (canSimplify) {
+                simpNote.innerHTML = `<span class="text-amber-300 font-bold">Entrambi pari → dividi per 2!</span>`;
+            } else {
+                simpNote.textContent = `Pedice O dispari (${rawSubO}): non semplificabile`;
+            }
+
+            document.getElementById('visFinalFormula').innerHTML = formatFormulaHTML(selectedElement.symbol, finalSubE, finalSubO);
+
+            // Bilancio cariche
+            const posTot = finalSubE * oxObj.ox;
+            const negTot = finalSubO * 2;
+            document.getElementById('chargeBalanceEq').textContent =
+                `${finalSubE} × (+${oxObj.ox}) + ${finalSubO} × (-2) = +${posTot} - ${negTot} = 0`;
+
+            // Aggiorna 3 Nomi e Spiegazioni Grammaticali
+            document.getElementById('nameIupac').textContent = oxObj.iupac;
+            document.getElementById('explainIupac').textContent = oxObj.iupacWhy;
+
+            document.getElementById('nameTrad').textContent = oxObj.trad;
+            document.getElementById('explainTrad').textContent = oxObj.tradWhy;
+            document.getElementById('tradCategoryTag').textContent = isBasico ? 'Ossido basico' : 'Anidride';
+
+            document.getElementById('nameStock').textContent = oxObj.stock;
+            document.getElementById('explainStock').textContent = oxObj.stockWhy;
+
+            if (triggerAnim) {
+                const box = document.getElementById('crossVisualBox');
+                box.classList.remove('cross-animate');
+                void box.offsetWidth; // trigger reflow
+                box.classList.add('cross-animate');
+            }
+        }
+
+        document.getElementById('btnAnimateCross').addEventListener('click', () => {
+            updateLabWorkspace(true);
+        });
+
+        renderElementGrid();
+        updateLabWorkspace(false);
+
+        // =========================================================================
+        // 4. TAVOLA DI CONFRONTO RAPIDO (FILTRABILE)
+        // =========================================================================
+        function buildReferenceTable() {
+            const tbody = document.getElementById('referenceTableBody');
+            const query = document.getElementById('tableSearch').value.trim().toLowerCase();
+            const filter = document.getElementById('tableFilter').value;
+
+            tbody.innerHTML = '';
+
+            ELEMENTS_DB.forEach(el => {
+                if (filter !== 'all' && el.type !== filter) return;
+
+                el.oxStates.forEach(st => {
+                    const canSimp = st.ox % 2 === 0;
+                    const subE = canSimp ? 1 : 2;
+                    const subO = canSimp ? st.ox / 2 : st.ox;
+                    const plainFormula = `${el.symbol}${subE > 1 ? subE : ''}O${subO > 1 ? subO : ''}`;
+
+                    const searchable = `${plainFormula} ${el.name} ${st.iupac} ${st.trad} ${st.stock}`.toLowerCase();
+                    if (query && !searchable.includes(query)) return;
+
+                    const tr = document.createElement('tr');
+                    tr.className = 'hover:bg-slate-50 transition';
+                    const isBasico = el.type === 'basico';
+
+                    tr.innerHTML = `
+                        <td class="py-2.5 px-3 font-mono-chem font-extrabold text-slate-900">${formatFormulaHTML(el.symbol, subE, subO)}</td>
+                        <td class="py-2.5 px-3">
+                            <span class="px-2 py-0.5 rounded-full text-[11px] font-bold ${isBasico ? 'bg-blue-100 text-blue-800' : 'bg-rose-100 text-rose-800'}">
+                                ${isBasico ? 'Basico' : 'Acido (Anidride)'}
+                            </span>
+                        </td>
+                        <td class="py-2.5 px-3 font-mono-chem font-bold text-slate-700">+${st.ox}</td>
+                        <td class="py-2.5 px-3 font-medium text-slate-800">${st.iupac}</td>
+                        <td class="py-2.5 px-3 font-semibold text-slate-900">${st.trad}</td>
+                        <td class="py-2.5 px-3 text-slate-700">${st.stock}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            });
+
+            if (tbody.children.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="py-6 text-center text-slate-400 text-xs">Nessun ossido trovato per i criteri selezionati.</td></tr>`;
+            }
+        }
+
+        document.getElementById('tableSearch').addEventListener('input', buildReferenceTable);
+        document.getElementById('tableFilter').addEventListener('change', buildReferenceTable);
+        buildReferenceTable();
+
+        // =========================================================================
+        // 5. MODALITÀ ESERCITAZIONE E QUIZ INTERATTIVO A LIVELLI
+        // =========================================================================
+        const QUIZ_BANK = {
+            base: [
+                {
+                    prompt: "Quale tra i seguenti composti è un OSSIDO BASICO?",
+                    options: ["CO₂ (diossido di carbonio)", "CaO (ossido di calcio)", "SO₃ (anidride solforica)", "N₂O₅ (anidride nitrica)"],
+                    correct: 1,
+                    explanation: "CaO è formato da Calcio (un metallo del II gruppo) e Ossigeno: è quindi un ossido basico. Gli altri sono formati da non metalli."
+                },
+                {
+                    prompt: "Come si chiama correttamente il composto Fe₂O₃ secondo la nomenclatura TRADIZIONALE?",
+                    options: ["Ossido ferroso", "Ossido ferrico", "Anidride ferrica", "Triossido di ferro (II)"],
+                    correct: 1,
+                    explanation: "In Fe₂O₃ il Ferro ha N.O. +3 (il maggiore tra +2 e +3). Trattandosi di un metallo, si usa 'Ossido' + suffisso -ico → Ossido ferrico."
+                },
+                {
+                    prompt: "Qual è la formula chimica dell'ANIDRIDE CARBONICA (diossido di carbonio)?",
+                    options: ["CO", "C₂O", "CO₂", "C₂O₄"],
+                    correct: 2,
+                    explanation: "Il Carbonio ha N.O. +4 e l'Ossigeno -2. Incrociando si ottiene C₂O₄, che semplificato per 2 diventa CO₂."
+                },
+                {
+                    prompt: "Quale nome IUPAC corrisponde alla formula Al₂O₃?",
+                    options: ["Ossido di alluminio (II)", "Diossido di trialluminio", "Triossido di dialluminio", "Anidride alluminica"],
+                    correct: 2,
+                    explanation: "La nomenclatura IUPAC legge gli indici da destra a sinistra: 3 atomi di ossigeno (triossido) e 2 di alluminio (dialluminio)."
+                },
+                {
+                    prompt: "Nella notazione di Stock, come si scrive il nome di CuO?",
+                    options: ["Ossido di rame (I)", "Ossido di rame (II)", "Ossido rameoso", "Monossido di dirame"],
+                    correct: 1,
+                    explanation: "Poiché l'ossigeno ha N.O. -2 e il rapporto è 1:1, il Rame ha N.O. +2. In Stock si scrive quindi 'Ossido di rame (II)'."
+                },
+                {
+                    prompt: "Qual è il numero di ossidazione dell'ossigeno in TUTTI gli ossidi basici e acidi?",
+                    options: ["-1", "+2", "-2", "0"],
+                    correct: 2,
+                    explanation: "In tutti gli ossidi ordinari l'ossigeno ha sempre numero di ossidazione -2 (fa eccezione solo nei perossidi, dove vale -1)."
+                }
+            ],
+            tecnico: [
+                {
+                    prompt: "Qual è il numero di ossidazione dello Zolfo (S) nell'ANIDRIDE SOLFORICA e qual è la sua formula?",
+                    options: ["N.O. = +4 → SO₂", "N.O. = +6 → SO₃", "N.O. = +6 → S₂O₆", "N.O. = +2 → SO"],
+                    correct: 1,
+                    explanation: "Lo Zolfo ha N.O. +4 (-osa) e +6 (-ica). Con +6 e O (-2) l'incrocio dà S₂O₆, che va obbligatoriamente semplificato in SO₃."
+                },
+                {
+                    prompt: "Il Cloro possiede 4 numeri di ossidazione positivi (+1, +3, +5, +7). Qual è il nome tradizionale di Cl₂O₇?",
+                    options: ["Anidride clorica", "Anidride ipoclorosa", "Anidride perclorica", "Eptossido di cloro"],
+                    correct: 2,
+                    explanation: "In Cl₂O₇ il Cloro ha N.O. +7, il più alto dei quattro valori possibili: si usa il prefisso 'per-' e il suffisso '-ica' → Anidride perclorica."
+                },
+                {
+                    prompt: "Quale tra queste terne associa correttamente formula, nome IUPAC e notazione di Stock per PbO₂?",
+                    options: [
+                        "PbO₂ • Diossido di piombo • Ossido di piombo (IV)",
+                        "PbO₂ • Monossido di dipiombo • Ossido di piombo (II)",
+                        "PbO₂ • Diossido di piombo • Ossido piomboso",
+                        "PbO₂ • Tetrossido di dipiombo • Ossido di piombo (IV)"
+                    ],
+                    correct: 0,
+                    explanation: "In PbO₂ ogni ossigeno vale -2 (totale -4), quindi il Piombo ha N.O. +4. La formula è già semplificata: Diossido di piombo / Ossido di piombo (IV)."
+                },
+                {
+                    prompt: "Considera il Cromo (Cr): perché CrO è un ossido basico mentre CrO₃ è un'anidride (ossido acido)?",
+                    options: [
+                        "Perché CrO₃ contiene più atomi di idrogeno.",
+                        "Perché nei metalli di transizione (come Cr e Mn), al crescere del N.O. (+6 in CrO₃) aumenta il carattere elettronegativo/acido.",
+                        "Perché CrO₃ è un perossido."
+                    ],
+                    correct: 1,
+                    explanation: "Cromo e Manganese sono eccezioni notevoli: con N.O. bassi (+2) danno ossidi basici, mentre con N.O. alti (+6, +7) si comportano da non metalli formando anidridi."
+                },
+                {
+                    prompt: "Perché il composto Na₂O₂ NON è un ossido ordinario ma un PEROSSIDO?",
+                    options: [
+                        "Perché il Sodio ha numero di ossidazione +2.",
+                        "Perché l'ossigeno ha N.O. = -1 (legame -O-O-) e gli indici non si semplificano.",
+                        "Perché è un ossido acido."
+                    ],
+                    correct: 1,
+                    explanation: "Il Sodio ha N.O. fisso +1: il suo ossido normale è Na₂O. In Na₂O₂ i due ossigeni formano un ponte perossidico con N.O. = -1 ciascuno."
+                },
+                {
+                    prompt: "Quale formula corrisponde all'ANIDRIDE FOSFOROSA (o triossido di difosforo)?",
+                    options: ["PO₃", "P₂O₅", "P₂O₃", "P₃O₂"],
+                    correct: 2,
+                    explanation: "Il Fosforo ha N.O. +3 (fosforosa) e +5 (fosforica). Incrociando P (+3) con O (-2) si ottiene P₂O₃ (non semplificabile)."
+                }
+            ]
+        };
+
+        let currentQuizLevel = 'base';
+        let currentQuestionIdx = 0;
+        let quizScore = 0;
+        let questionAnswered = false;
+        let quizHistory = [];
+
+        function startQuiz(level) {
+            currentQuizLevel = level;
+            currentQuestionIdx = 0;
+            quizScore = 0;
+            questionAnswered = false;
+            quizHistory = [];
+
+            const btnBase = document.getElementById('btnLevelBase');
+            const btnTecnico = document.getElementById('btnLevelTecnico');
+            if (level === 'base') {
+                btnBase.className = 'px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white shadow transition';
+                btnTecnico.className = 'px-3 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition';
+            } else {
+                btnTecnico.className = 'px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-600 text-white shadow transition';
+                btnBase.className = 'px-3 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition';
+            }
+
+            document.getElementById('quizSummaryArea').classList.add('hidden');
+            document.getElementById('quizQuestionArea').classList.remove('hidden');
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            const questions = QUIZ_BANK[currentQuizLevel];
+            const total = questions.length;
+            const qObj = questions[currentQuestionIdx];
+            questionAnswered = false;
+
+            document.getElementById('quizProgressLabel').textContent = `Domanda ${currentQuestionIdx + 1} di ${total}`;
+            document.getElementById('quizScoreLabel').textContent = `Punteggio: ${quizScore} / ${total}`;
+            document.getElementById('quizProgressBar').style.width = `${((currentQuestionIdx + 1) / total) * 100}%`;
+
+            const area = document.getElementById('quizQuestionArea');
+            area.innerHTML = `
+                <div class="space-y-4">
+                    <div class="inline-block text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${currentQuizLevel === 'base' ? 'bg-blue-100 text-blue-800' : 'bg-rose-100 text-rose-800'}">
+                        ${currentQuizLevel === 'base' ? 'Livello Base' : 'Livello Tecnico'}
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">${qObj.prompt}</h3>
+                    <div id="quizOptionsList" class="space-y-2.5">
+                        ${qObj.options.map((opt, idx) => `
+                            <button data-opt="${idx}" class="quiz-opt-btn w-full text-left p-3.5 rounded-xl border-2 border-slate-200 hover:border-slate-400 bg-slate-50/60 hover:bg-white text-xs sm:text-sm font-semibold text-slate-800 transition flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 flex items-center justify-center font-mono-chem text-xs font-bold shrink-0">
+                                    ${String.fromCharCode(65 + idx)}
+                                </span>
+                                <span>${opt}</span>
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div id="quizFeedbackBox" class="hidden rounded-xl p-4 text-xs sm:text-sm leading-relaxed"></div>
+                    <div class="pt-2 flex justify-end">
+                        <button id="btnNextQuestion" class="hidden px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold shadow transition">
+                            ${currentQuestionIdx + 1 < total ? 'Prossima Domanda →' : 'Vedi Riepilogo Finale 🏆'}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.querySelectorAll('.quiz-opt-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (questionAnswered) return;
+                    questionAnswered = true;
+                    const chosen = parseInt(btn.getAttribute('data-opt'), 10);
+                    const isCorrect = chosen === qObj.correct;
+                    if (isCorrect) quizScore++;
+
+                    quizHistory.push({
+                        prompt: qObj.prompt,
+                        chosenText: qObj.options[chosen],
+                        correctText: qObj.options[qObj.correct],
+                        isCorrect
+                    });
+
+                    document.getElementById('quizScoreLabel').textContent = `Punteggio: ${quizScore} / ${total}`;
+
+                    // Stile bottoni dopo la risposta
+                    document.querySelectorAll('.quiz-opt-btn').forEach((b, idx) => {
+                        b.disabled = true;
+                        if (idx === qObj.correct) {
+                            b.className = 'w-full text-left p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-xs sm:text-sm font-bold text-emerald-950 flex items-center gap-3';
+                        } else if (idx === chosen && !isCorrect) {
+                            b.className = 'w-full text-left p-3.5 rounded-xl border-2 border-red-400 bg-red-50 text-xs sm:text-sm font-semibold text-red-950 flex items-center gap-3';
+                        } else {
+                            b.className = 'w-full text-left p-3.5 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs sm:text-sm text-slate-400 opacity-65 flex items-center gap-3';
+                        }
+                    });
+
+                    const fb = document.getElementById('quizFeedbackBox');
+                    fb.classList.remove('hidden');
+                    if (isCorrect) {
+                        fb.className = 'rounded-xl p-4 text-xs sm:text-sm leading-relaxed bg-emerald-100/80 border border-emerald-300 text-emerald-950';
+                        fb.innerHTML = `<strong>✓ Risposta esatta!</strong> ${qObj.explanation}`;
+                    } else {
+                        fb.className = 'rounded-xl p-4 text-xs sm:text-sm leading-relaxed bg-amber-100/80 border border-amber-300 text-amber-950';
+                        fb.innerHTML = `<strong>✗ Attenzione!</strong> ${qObj.explanation}`;
+                    }
+
+                    document.getElementById('btnNextQuestion').classList.remove('hidden');
+                });
+            });
+
+            document.getElementById('btnNextQuestion').addEventListener('click', () => {
+                if (currentQuestionIdx + 1 < total) {
+                    currentQuestionIdx++;
+                    renderQuizQuestion();
+                } else {
+                    renderQuizSummary();
+                }
+            });
+        }
+
+        function renderQuizSummary() {
+            const total = QUIZ_BANK[currentQuizLevel].length;
+            const pct = Math.round((quizScore / total) * 100);
+            document.getElementById('quizQuestionArea').classList.add('hidden');
+            const summary = document.getElementById('quizSummaryArea');
+            summary.classList.remove('hidden');
+
+            let badgeMsg = '';
+            if (pct === 100) badgeMsg = 'Eccellente! Padronanza completa della nomenclatura degli ossidi.';
+            else if (pct >= 66) badgeMsg = 'Buon risultato! Rivedi gli eventuali errori qui sotto per raggiungere il 100%.';
+            else badgeMsg = 'Ti consigliamo di ripassare la sezione Teoria e provare gli esempi nel Laboratorio!';
+
+            summary.innerHTML = `
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-slate-900 text-white font-mono-chem text-2xl font-extrabold shadow">
+                    ${quizScore}/${total}
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900">Esercitazione Completata (${pct}%)</h3>
+                <p class="text-sm text-slate-600 max-w-lg mx-auto">${badgeMsg}</p>
+
+                <div class="text-left space-y-2 pt-3 border-t border-slate-200">
+                    <div class="text-xs font-bold uppercase text-slate-400">Riepilogo risposte:</div>
+                    ${quizHistory.map((h, i) => `
+                        <div class="p-3 rounded-xl border ${h.isCorrect ? 'bg-emerald-50/70 border-emerald-200' : 'bg-red-50/70 border-red-200'} text-xs space-y-1">
+                            <div class="font-bold text-slate-900">${i + 1}. ${h.prompt}</div>
+                            <div class="${h.isCorrect ? 'text-emerald-800' : 'text-red-800'}">
+                                Tua risposta: <strong>${h.chosenText}</strong> ${h.isCorrect ? '✓' : '✗'}
+                            </div>
+                            ${!h.isCorrect ? `<div class="text-emerald-800">Risposta corretta: <strong>${h.correctText}</strong></div>` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="pt-3 flex flex-wrap justify-center gap-3">
+                    <button id="btnRetrySame" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold transition">
+                        ↺ Ripeti questo livello
+                    </button>
+                    <button id="btnSwitchOtherLevel" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-bold transition">
+                        Passa al ${currentQuizLevel === 'base' ? 'Livello Tecnico' : 'Livello Base'} →
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('btnRetrySame').addEventListener('click', () => startQuiz(currentQuizLevel));
+            document.getElementById('btnSwitchOtherLevel').addEventListener('click', () => {
+                startQuiz(currentQuizLevel === 'base' ? 'tecnico' : 'base');
+            });
+        }
+
+        document.getElementById('btnLevelBase').addEventListener('click', () => startQuiz('base'));
+        document.getElementById('btnLevelTecnico').addEventListener('click', () => startQuiz('tecnico'));
+
+        // Inizializza quiz al caricamento
+        startQuiz('base');
+    </script>
+</body>
+</html>
