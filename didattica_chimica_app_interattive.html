@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Didattica Chimica - App Interattive</title>
+    <!-- Caricamento Tailwind CSS per lo styling moderno e responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen font-sans text-slate-800 antialiased relative selection:bg-emerald-500 selection:text-white flex flex-col justify-between">
+
+    <!-- Sfondo fisso ad alta risoluzione di un bosco verde luminoso con fallback cromatico -->
+    <div class="fixed inset-0 -z-20 bg-emerald-950">
+        <img 
+            src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=85" 
+            alt="Sfondo bosco verde luminoso" 
+            class="w-full h-full object-cover object-center opacity-90"
+            onerror="this.style.display='none'"
+        >
+        <!-- Overlay sfumato per migliorare il contrasto e la leggibilità -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/65 via-emerald-950/45 to-slate-950/80 backdrop-blur-[2px]"></div>
+    </div>
+
+    <!-- Header principale con badge docenti in alto a destra -->
+    <header class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            
+            <!-- Badge Laboratorio / Repository -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white shadow-lg">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-xs sm:text-sm font-semibold tracking-wide uppercase">Laboratorio Digitale di Chimica</span>
+            </div>
+
+            <!-- Riquadro elegante in alto a destra con i nomi delle docenti -->
+            <aside aria-label="Docenti di Chimica" class="w-full md:w-auto self-end bg-white/90 backdrop-blur-md border border-white/60 rounded-2xl px-5 py-3.5 shadow-xl text-right transition-transform duration-300 hover:scale-[1.01]">
+                <div class="flex items-center justify-end gap-2 text-emerald-800 font-bold text-xs uppercase tracking-wider mb-1.5 border-b border-emerald-900/10 pb-1">
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                    </svg>
+                    <span>Dipartimento di Chimica</span>
+                </div>
+                <ul class="space-y-1 text-sm sm:text-[15px] font-medium text-slate-800">
+                    <li class="flex items-center justify-end gap-2">
+                        <span class="font-semibold text-slate-900">Prof.ssa Elena Davico</span>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800">Chimica</span>
+                    </li>
+                    <li class="flex items-center justify-end gap-2">
+                        <span class="font-semibold text-slate-900">Prof.ssa Valentina Colella</span>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800">Chimica</span>
+                    </li>
+                    <li class="flex items-center justify-end gap-2">
+                        <span class="font-semibold text-slate-900">Prof.ssa Giusy Sergi</span>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800">Chimica</span>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+
+        <!-- Titolo Principale e Sottotitolo -->
+        <div class="mt-8 sm:mt-10 text-center max-w-3xl mx-auto">
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
+                Portale Didattico di Chimica
+            </h1>
+            <p class="mt-3 sm:mt-4 text-base sm:text-lg text-emerald-50/95 font-normal leading-relaxed drop-shadow">
+                Simulazioni interattive ed esercitazioni guidate per lo studio della chimica organica e generale — a cura della <strong class="font-semibold text-white">Prof.ssa Elena Davico</strong> e colleghe.
+            </p>
+        </div>
+    </header>
+
+    <!-- Contenuto Principale: Griglia delle Applicazioni -->
+    <main class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+
+            <!-- SCHEDA 1: Bromurazione degli Alcani -->
+            <article class="group bg-white/92 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl border border-white/70 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-emerald-950/40">
+                <div>
+                    <!-- Immagine Vettoriale Tematica Cliccabile -->
+                    <a href="https://elenavale11.github.io/Didattica-app/Bromurazione%20Alcani.html" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="Apri l'applicazione Bromurazione degli Alcani"
+                       class="block relative overflow-hidden bg-gradient-to-br from-amber-900 via-orange-950 to-slate-900 aspect-[16/9] cursor-pointer">
+                        
+                        <!-- Illustrazione SVG: Reazione di Bromurazione Radicalica (R-H + Br2 + hv -> R-Br + HBr) -->
+                        <svg viewBox="0 0 600 330" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="uvGlow" cx="50%" cy="22%" r="45%">
+                                    <stop offset="0%" stop-color="#fde047" stop-opacity="0.45"/>
+                                    <stop offset="100%" stop-color="#fde047" stop-opacity="0"/>
+                                </radialGradient>
+                                <radialGradient id="bromineGrad" cx="35%" cy="35%" r="65%">
+                                    <stop offset="0%" stop-color="#fb923c"/>
+                                    <stop offset="60%" stop-color="#c2410c"/>
+                                    <stop offset="100%" stop-color="#7c2d12"/>
+                                </radialGradient>
+                                <radialGradient id="carbonGrad" cx="35%" cy="35%" r="65%">
+                                    <stop offset="0%" stop-color="#64748b"/>
+                                    <stop offset="100%" stop-color="#1e293b"/>
+                                </radialGradient>
+                                <radialGradient id="hydrogenGrad" cx="35%" cy="35%" r="65%">
+                                    <stop offset="0%" stop-color="#ffffff"/>
+                                    <stop offset="100%" stop-color="#cbd5e1"/>
+                                </radialGradient>
+                            </defs>
+
+                            <!-- Bagliore Luce UV -->
+                            <rect width="600" height="330" fill="url(#uvGlow)"/>
+
+                            <!-- Griglia molecolare di sfondo sottile -->
+                            <g stroke="#ffffff" stroke-opacity="0.06" stroke-width="1">
+                                <line x1="0" y1="80" x2="600" y2="80"/>
+                                <line x1="0" y1="165" x2="600" y2="165"/>
+                                <line x1="0" y1="250" x2="600" y2="250"/>
+                                <line x1="150" y1="0" x2="150" y2="330"/>
+                                <line x1="300" y1="0" x2="300" y2="330"/>
+                                <line x1="450" y1="0" x2="450" y2="330"/>
+                            </g>
+
+                            <!-- Onda Luce UV (hν) in alto al centro -->
+                            <g transform="translate(250, 28)">
+                                <path d="M 0 25 Q 12 5, 25 25 T 50 25 T 75 25 T 100 25" fill="none" stroke="#fde047" stroke-width="3.5" stroke-linecap="round"/>
+                                <polygon points="98,19 110,25 98,31" fill="#fde047"/>
+                                <rect x="28" y="-4" width="44" height="22" rx="11" fill="#fef08a" fill-opacity="0.2" stroke="#fde047" stroke-width="1"/>
+                                <text x="50" y="11" text-anchor="middle" fill="#fef08a" font-family="Inter, sans-serif" font-weight="700" font-size="13">hν (UV)</text>
+                            </g>
+
+                            <!-- Molecola Alcano (sinistra) -->
+                            <g transform="translate(125, 175)">
+                                <!-- Legami C-H -->
+                                <line x1="0" y1="0" x2="-48" y2="-38" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="0" y1="0" x2="-48" y2="38" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="0" y1="0" x2="0" y2="58" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+                                <!-- Legame C-H reattivo evidenziato -->
+                                <line x1="0" y1="0" x2="55" y2="0" stroke="#fbbf24" stroke-width="5" stroke-dasharray="6,4" stroke-linecap="round"/>
+                                
+                                <!-- Atomi H -->
+                                <circle cx="-48" cy="-38" r="14" fill="url(#hydrogenGrad)"/>
+                                <text x="-48" y="-34" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="700">H</text>
+                                <circle cx="-48" cy="38" r="14" fill="url(#hydrogenGrad)"/>
+                                <text x="-48" y="42" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="700">H</text>
+                                <circle cx="0" cy="58" r="14" fill="url(#hydrogenGrad)"/>
+                                <text x="0" y="62" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="700">H</text>
+                                <circle cx="58" cy="0" r="15" fill="url(#hydrogenGrad)" stroke="#fbbf24" stroke-width="2"/>
+                                <text x="58" y="4" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="800">H</text>
+
+                                <!-- Atomo C centrale -->
+                                <circle cx="0" cy="0" r="24" fill="url(#carbonGrad)" stroke="#94a3b8" stroke-width="2"/>
+                                <text x="0" y="5" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="800">C</text>
+                            </g>
+
+                            <!-- Freccia di reazione centrale -->
+                            <g transform="translate(275, 175)">
+                                <line x1="-22" y1="0" x2="28" y2="0" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+                                <polygon points="26,-7 40,0 26,7" fill="#ffffff"/>
+                                <text x="8" y="-14" text-anchor="middle" fill="#fdba74" font-size="12" font-weight="700">+ Br₂</text>
+                            </g>
+
+                            <!-- Prodotto Bromoalcano + Radicali (destra) -->
+                            <g transform="translate(430, 175)">
+                                <!-- Legami -->
+                                <line x1="0" y1="0" x2="-45" y2="-38" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="0" y1="0" x2="-45" y2="38" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="0" y1="0" x2="0" y2="58" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+                                <line x1="0" y1="0" x2="62" y2="0" stroke="#fb923c" stroke-width="6" stroke-linecap="round"/>
+
+                                <!-- Atomi H -->
+                                <circle cx="-45" cy="-38" r="14" fill="url(#hydrogenGrad)"/>
+                                <text x="-45" y="-34" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="700">H</text>
+                                <circle cx="-45" cy="38" r="14" fill="url(#hydrogenGrad)"/>
+                                <text x="-45" y="42" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="700">H</text>
+                                <circle cx="0" cy="58" r="14" fill="url(#hydrogenGrad)"/>
+                                <text x="0" y="62" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="700">H</text>
+
+                                <!-- Atomo C -->
+                                <circle cx="0" cy="0" r="24" fill="url(#carbonGrad)" stroke="#94a3b8" stroke-width="2"/>
+                                <text x="0" y="5" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="800">C</text>
+
+                                <!-- Atomo di Bromo (Br) grande -->
+                                <circle cx="68" cy="0" r="28" fill="url(#bromineGrad)" stroke="#fed7aa" stroke-width="2.5"/>
+                                <text x="68" y="6" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="800">Br</text>
+                            </g>
+
+                            <!-- Etichetta inferiore -->
+                            <rect x="155" y="282" width="290" height="28" rx="14" fill="#000000" fill-opacity="0.45" stroke="#ffffff" stroke-opacity="0.15"/>
+                            <text x="300" y="300" text-anchor="middle" fill="#fed7aa" font-size="12" font-weight="600" letter-spacing="0.5">MECCANISMO RADICALICO • CHIMICA ORGANICA</text>
+                        </svg>
+
+                        <!-- Badge sovrapposto in alto a sinistra -->
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold bg-amber-500 text-slate-950 shadow-md">
+                            App 01 • Chimica Organica
+                        </span>
+                    </a>
+
+                    <!-- Corpo Testuale della Card -->
+                    <div class="p-6 sm:p-8">
+                        <h2 class="text-2xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                            <a href="https://elenavale11.github.io/Didattica-app/Bromurazione%20Alcani.html" target="_blank" rel="noopener noreferrer">
+                                Bromurazione degli Alcani
+                            </a>
+                        </h2>
+                        
+                        <div class="mt-4 space-y-3 text-slate-600 text-sm sm:text-[15px] leading-relaxed">
+                            <p>
+                                <strong class="text-slate-800 font-semibold">Obiettivo didattico:</strong> Questa simulazione interattiva guida gli studenti alla comprensione passo-passo della reazione di <em>sostituzione radicalica a catena</em> tra alcani e bromo molecolare (<span class="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded text-slate-800">Br₂</span>) in presenza di luce ultravioletta (<span class="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded text-slate-800">hν</span>) o calore.
+                            </p>
+                            <ul class="space-y-1.5 pl-1">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span>Analisi delle tre fasi del meccanismo: <strong>iniziazione</strong> (scissione omolitica), <strong>propagazione</strong> e <strong>terminazione</strong>.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span>Studio della <strong>regioselettività</strong> e della stabilità dei radicali alchilici (primari, secondari e terziari) nella formazione dei prodotti principali.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Card con Pulsante -->
+                <div class="px-6 sm:px-8 pb-6 sm:pb-8 pt-2">
+                    <a href="https://elenavale11.github.io/Didattica-app/Bromurazione%20Alcani.html" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-semibold text-base shadow-lg shadow-emerald-600/25 transition-all duration-200">
+                        <span>Apri App Bromurazione</span>
+                        <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- SCHEDA 2: Nomenclatura Chimica -->
+            <article class="group bg-white/92 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl border border-white/70 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-emerald-950/40">
+                <div>
+                    <!-- Immagine Vettoriale Tematica Cliccabile -->
+                    <a href="https://elenavale11.github.io/Didattica-app/davico_nomenclatura_v1.html" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="Apri l'applicazione Nomenclatura Chimica"
+                       class="block relative overflow-hidden bg-gradient-to-br from-teal-900 via-emerald-950 to-slate-900 aspect-[16/9] cursor-pointer">
+                        
+                        <!-- Illustrazione SVG: Tavola Periodica, Formule Chimiche e Regole IUPAC -->
+                        <svg viewBox="0 0 600 330" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="tealGlow" cx="50%" cy="50%" r="55%">
+                                    <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.28"/>
+                                    <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+                                </radialGradient>
+                            </defs>
+
+                            <rect width="600" height="330" fill="url(#tealGlow)"/>
+
+                            <!-- Tessere stile Tavola Periodica -->
+                            <!-- Tessera 1: Fe (Ferro) -->
+                            <g transform="translate(65, 45)">
+                                <rect width="105" height="115" rx="14" fill="#0f766e" fill-opacity="0.65" stroke="#5eead4" stroke-width="2"/>
+                                <text x="14" y="24" fill="#99f6e4" font-size="13" font-weight="700">26</text>
+                                <text x="88" y="24" text-anchor="end" fill="#99f6e4" font-size="11" font-weight="600">+2, +3</text>
+                                <text x="52" y="68" text-anchor="middle" fill="#ffffff" font-size="38" font-weight="800">Fe</text>
+                                <text x="52" y="92" text-anchor="middle" fill="#ccfbf1" font-size="12" font-weight="600">Ferro</text>
+                                <text x="52" y="106" text-anchor="middle" fill="#5eead4" font-size="10">55.845</text>
+                            </g>
+
+                            <!-- Tessera 2: O (Ossigeno) -->
+                            <g transform="translate(190, 45)">
+                                <rect width="105" height="115" rx="14" fill="#0369a1" fill-opacity="0.65" stroke="#7dd3fc" stroke-width="2"/>
+                                <text x="14" y="24" fill="#bae6fd" font-size="13" font-weight="700">8</text>
+                                <text x="88" y="24" text-anchor="end" fill="#bae6fd" font-size="11" font-weight="600">-2</text>
+                                <text x="52" y="68" text-anchor="middle" fill="#ffffff" font-size="38" font-weight="800">O</text>
+                                <text x="52" y="92" text-anchor="middle" fill="#e0f2fe" font-size="12" font-weight="600">Ossigeno</text>
+                                <text x="52" y="106" text-anchor="middle" fill="#7dd3fc" font-size="10">15.999</text>
+                            </g>
+
+                            <!-- Tessera 3: S (Zolfo) -->
+                            <g transform="translate(315, 45)">
+                                <rect width="105" height="115" rx="14" fill="#b45309" fill-opacity="0.6" stroke="#fcd34d" stroke-width="2"/>
+                                <text x="14" y="24" fill="#fde68a" font-size="13" font-weight="700">16</text>
+                                <text x="88" y="24" text-anchor="end" fill="#fde68a" font-size="11" font-weight="600">+4, +6</text>
+                                <text x="52" y="68" text-anchor="middle" fill="#ffffff" font-size="38" font-weight="800">S</text>
+                                <text x="52" y="92" text-anchor="middle" fill="#fef3c7" font-size="12" font-weight="600">Zolfo</text>
+                                <text x="52" y="106" text-anchor="middle" fill="#fcd34d" font-size="10">32.06</text>
+                            </g>
+
+                            <!-- Tessera 4: H (Idrogeno) -->
+                            <g transform="translate(440, 45)">
+                                <rect width="95" height="115" rx="14" fill="#334155" fill-opacity="0.75" stroke="#cbd5e1" stroke-width="2"/>
+                                <text x="14" y="24" fill="#e2e8f0" font-size="13" font-weight="700">1</text>
+                                <text x="82" y="24" text-anchor="end" fill="#e2e8f0" font-size="11" font-weight="600">+1</text>
+                                <text x="47" y="68" text-anchor="middle" fill="#ffffff" font-size="38" font-weight="800">H</text>
+                                <text x="47" y="92" text-anchor="middle" fill="#f1f5f9" font-size="12" font-weight="600">Idrogeno</text>
+                                <text x="47" y="106" text-anchor="middle" fill="#cbd5e1" font-size="10">1.008</text>
+                            </g>
+
+                            <!-- Scheda Formula -> Nome IUPAC & Tradizionale -->
+                            <g transform="translate(65, 182)">
+                                <rect width="470" height="82" rx="16" fill="#0f172a" fill-opacity="0.82" stroke="#2dd4bf" stroke-width="1.5"/>
+                                
+                                <!-- Formula -->
+                                <text x="32" y="48" fill="#5eead4" font-family="monospace" font-size="26" font-weight="800">Fe₂(SO₄)₃</text>
+                                
+                                <!-- Freccia bidirezionale -->
+                                <path d="M 192 41 L 228 41 M 222 35 L 228 41 L 222 47 M 198 35 L 192 41 L 198 47" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+                                <!-- Nomi -->
+                                <text x="248" y="34" fill="#ffffff" font-size="14" font-weight="700">Tris(tetraossosolfato) di diferro</text>
+                                <text x="248" y="56" fill="#99f6e4" font-size="13" font-weight="500">Solfato ferrico • Solfato di ferro(III)</text>
+                            </g>
+
+                            <!-- Etichetta inferiore -->
+                            <rect x="145" y="282" width="310" height="28" rx="14" fill="#000000" fill-opacity="0.45" stroke="#ffffff" stroke-opacity="0.15"/>
+                            <text x="300" y="300" text-anchor="middle" fill="#99f6e4" font-size="12" font-weight="600" letter-spacing="0.5">NOMENCLATURA IUPAC • STOCK • TRADIZIONALE</text>
+                        </svg>
+
+                        <!-- Badge sovrapposto in alto a sinistra -->
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold bg-teal-400 text-slate-950 shadow-md">
+                            App 02 • Chimica Generale
+                        </span>
+                    </a>
+
+                    <!-- Corpo Testuale della Card -->
+                    <div class="p-6 sm:p-8">
+                        <h2 class="text-2xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                            <a href="https://elenavale11.github.io/Didattica-app/davico_nomenclatura_v1.html" target="_blank" rel="noopener noreferrer">
+                                Nomenclatura Chimica
+                            </a>
+                        </h2>
+                        
+                        <div class="mt-4 space-y-3 text-slate-600 text-sm sm:text-[15px] leading-relaxed">
+                            <p>
+                                <strong class="text-slate-800 font-semibold">Obiettivo didattico:</strong> Ambiente di esercitazione interattiva progettato per consolidare le regole di scrittura delle formule chimiche e l'assegnazione corretta dei nomi secondo le convenzioni <strong>IUPAC</strong>, di <strong>Stock</strong> e <strong>Tradizionale</strong>.
+                            </p>
+                            <ul class="space-y-1.5 pl-1">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span>Riconoscimento e classificazione di <strong>ossidi, idrossidi, idracidi, ossiacidi e sali</strong> binari e ternari.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span>Esercizi graduali con <strong>feedback immediato</strong> per favorire l'autovalutazione in classe e lo studio autonomo a casa.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Card con Pulsante -->
+                <div class="px-6 sm:px-8 pb-6 sm:pb-8 pt-2">
+                    <a href="https://elenavale11.github.io/Didattica-app/davico_nomenclatura_v1.html" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-semibold text-base shadow-lg shadow-emerald-600/25 transition-all duration-200">
+                        <span>Apri App Nomenclatura</span>
+                        <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer con riferimento al repository GitHub -->
+    <footer class="w-full border-t border-white/15 bg-slate-950/60 backdrop-blur-md text-slate-200 py-6 px-4 sm:px-6 lg:px-8 mt-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+            <div class="text-center sm:text-left">
+                <p class="font-medium text-white">Risorse Didattiche Digitali di Chimica</p>
+                <p class="text-xs text-slate-300 mt-0.5">Prof.ssa Elena Davico • Prof.ssa Valentina Colella • Prof.ssa Giusy Sergi</p>
+            </div>
+            
+            <a href="https://elenavale11.github.io/Didattica-app/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-emerald-200 hover:text-white transition-colors text-xs sm:text-sm font-medium">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                </svg>
+                <span>elenavale11.github.io/Didattica-app</span>
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
